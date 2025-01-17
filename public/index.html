@@ -186,37 +186,36 @@
           </section>
     </main>
     <script>
-        // Add this script to your index.html
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Auth script loaded');
-    
-    // Check authentication status immediately
-    updateNavButtons();
-
-    function updateNavButtons() {
-        console.log('Updating nav buttons');
-        const navButtons = document.querySelector('.nav-buttons');
-        const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
-        console.log('Is authenticated:', isAuthenticated);
-        
-        if (isAuthenticated) {
-            navButtons.innerHTML = '<a href="#" class="btn-logout">Logout</a>';
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Auth script loaded');
             
-            // Add logout handler
-            document.querySelector('.btn-logout').addEventListener('click', (e) => {
-                e.preventDefault();
-                localStorage.removeItem('isAuthenticated');
-                console.log('Logged out, auth state cleared');
-                window.location.reload();
-            });
-        } else {
-            navButtons.innerHTML = `
-                <a href="login.html" class="btn-login">Login</a>
-                <a href="signup.html" class="btn-signup">Sign Up</a>
-            `;
-        }
-    }
-});
+            // Check authentication status immediately
+            updateNavButtons();
+
+            function updateNavButtons() {
+                console.log('Updating nav buttons');
+                const navButtons = document.querySelector('.nav-buttons');
+                const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+                console.log('Is authenticated:', isAuthenticated);
+                
+                if (isAuthenticated) {
+                    navButtons.innerHTML = '<a href="#" class="btn-logout">Logout</a>';
+                    
+                    // Add logout handler
+                    document.querySelector('.btn-logout').addEventListener('click', (e) => {
+                        e.preventDefault();
+                        localStorage.removeItem('isAuthenticated');
+                        console.log('Logged out, auth state cleared');
+                        window.location.reload();
+                    });
+                } else {
+                    navButtons.innerHTML = `
+                        <a href="login.html" class="btn-login">Login</a>
+                        <a href="signup.html" class="btn-signup">Sign Up</a>
+                    `;
+                }
+            }
+        });
     </script>
 </body>
 </html>

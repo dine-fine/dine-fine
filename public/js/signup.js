@@ -1,6 +1,4 @@
-
 document.getElementById('close').addEventListener('click', () => {
-    // close function
     window.location.href = 'index.html';
 });
 
@@ -23,10 +21,9 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
         const data = await response.json();
         
         if (response.ok) {
-            // Set authentication state to true
             localStorage.setItem('isAuthenticated', 'true');
             console.log('Signup successful, auth state set to true');
-            window.location.href = '/'; // Redirect to home page
+            window.location.href = '/'; 
         } else {
             alert(data.error || 'Registration failed');
         }

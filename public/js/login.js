@@ -2,7 +2,6 @@ document.getElementById('close').addEventListener('click', () => {
     window.location.href = 'index.html';
 });
 
-// Add this script to your login.html
 document.getElementById('loginForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     
@@ -21,10 +20,9 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
         const data = await response.json();
         
         if (response.ok) {
-            // Set authentication state to true
             localStorage.setItem('isAuthenticated', 'true');
             console.log('Login successful, auth state set to true');
-            window.location.href = '/'; // Redirect to home page
+            window.location.href = '/';
         } else {
             alert(data.error || 'Login failed');
         }
